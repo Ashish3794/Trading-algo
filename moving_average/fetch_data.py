@@ -1,6 +1,7 @@
 from datetime import date
 from nsepy import get_history
 import os
+import streamlit as st
 
 
 def fetch_data(data, name):
@@ -18,7 +19,7 @@ def collect_data(stock_list):
     for f in os.listdir(path):
         os.remove(os.path.join(path, f))
     for stock in stock_list:
-        
+        st.markdown("Collecting data for: "+stock)
         data = get_history(symbol = stock, start = date(2021, 1, 1), end = date.today())
         data.reset_index(inplace = True)
         
