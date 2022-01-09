@@ -84,12 +84,6 @@ def calculate(data, name, df, links):
 
                 return text
 
-def fun(path):
-    # returns the final component of a url
-    f_url = os.path.basename(path)
-    # convert the url into link
-    return '<a href="{}">{}</a>'.format(path, f_url)
-
 def algo(links):
     text = ''
     files = glob.glob("moving_average/data/*")
@@ -103,8 +97,6 @@ def algo(links):
         if out != None:
             text += out
     output = pd.DataFrame(df)
-    # output = output.to_html(escape=False)
-    output = output.style.format({'Link' : fun})
     st.title("44 Moving Average Results")
     st.dataframe(output)
     with open('moving_average/Calls/'+str(date.today())+'.txt', 'w') as f:

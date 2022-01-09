@@ -14,12 +14,6 @@ def isResistance(df,i):
     resistance = df['High'][i] > df['High'][i-1]  and df['High'][i] > df['High'][i+1] and df['High'][i+1] > df['High'][i+2] and df['High'][i-1] > df['High'][i-2]
     return resistance
 
-def fun(path):
-    # returns the final component of a url
-    f_url = os.path.basename(path)
-    # convert the url into link
-    return "<a href='{}'>{}</a>".format(path, f_url)
-
 def sup_res(links):
     out_text = ""
     df = {"Name": [], "Buy Price": [], "Target Price": [], "Link" : []}
@@ -58,17 +52,8 @@ def sup_res(links):
                 df["Target Price"].append(sell_price)
                 df["Link"].append(links[stock_name])
     output = pd.DataFrame(df)
-    print(output)
-    # final_output = output.style.format({'Link' : fun})
-    # html_output = output.to_html(escape = False)
     st.title("Support and Resistence Level Results")
-    # st.table(final_output)
-    # print(html_output)
     st.dataframe(output)
-#     import streamlit.components.v1 as components  # Import Streamlit
-
-# # Render the h1 block, contained in a frame of size 200x200.
-#     components.html(html_output)
     with open('support_resistence/Calls/'+str(date.today())+'.txt', 'w') as f:
         f.write(out_text)
     
