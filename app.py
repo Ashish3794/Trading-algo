@@ -16,7 +16,7 @@ for i in range(len(data)):
 stock_list.append("LALPATHLAB")
 
 links = create_link(stock_list)
-# collect_data(stock_list)
-# algo(links)
+collect_data(stock_list)
+algo(links)
 
 sup_res(links)
