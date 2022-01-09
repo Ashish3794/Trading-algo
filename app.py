@@ -12,8 +12,6 @@ for i in range(len(data)):
 stock_list.append("LALPATHLAB")
 
 links = create_link(stock_list)
-st.markdown("Fetching data")
 collect_data(stock_list)
-st.markdown("Running algo")
 algo(links)
 sup_res(links)
