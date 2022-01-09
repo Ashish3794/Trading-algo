@@ -3,3 +3,4 @@ datetime2
 glob2
 streamlit
 tqdm
+nsepy
