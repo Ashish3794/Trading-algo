@@ -1,11 +1,8 @@
 import pandas as pd
 from datetime import date
-from nsepy import get_history
-import pandas as pd
 from tqdm import tqdm
 import glob
 import streamlit as st
-import os
 
 def isSupport(df,i):
     support = df['Low'][i] < df['Low'][i-1]  and df['Low'][i] < df['Low'][i+1] and df['Low'][i+1] < df['Low'][i+2] and df['Low'][i-1] < df['Low'][i-2]

@@ -1,13 +1,8 @@
-from datetime import date
-from nsepy import get_history
 import pandas as pd
-import os 
-import glob
 from moving_average.fetch_data import collect_data
 from moving_average.algorithm import algo
 from support_resistence.algo import sup_res
 from links import create_link
-import streamlit as st
 
 data = pd.read_csv('ind_nifty500list.csv')
 stock_list = []

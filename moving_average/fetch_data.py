@@ -1,6 +1,5 @@
 from datetime import date
 from nsepy import get_history
-import pandas as pd
 import os
 
 
