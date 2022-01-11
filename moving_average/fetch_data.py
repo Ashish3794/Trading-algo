@@ -19,10 +19,13 @@ def collect_data(stock_list):
     for f in os.listdir(path):
         os.remove(os.path.join(path, f))
     for stock in stock_list:
-        st.markdown("Collecting data for: "+stock)
-        data = get_history(symbol = stock, start = date(2021, 1, 1), end = date.today())
-        data.reset_index(inplace = True)
-        
-        if len(data)>0:
-            #Use fetch_data() for first time use
-            fetch_data(data, stock)
+        try:
+            st.markdown("Collecting data for: "+stock)
+            data = get_history(symbol = stock, start = date(2021, 1, 1), end = date.today())
+            data.reset_index(inplace = True)
+            
+            if len(data)>0:
+                #Use fetch_data() for first time use
+                fetch_data(data, stock)
+        except:
+            st.markdown("Error in: "+stock)
